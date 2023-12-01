@@ -11,14 +11,29 @@ def decode_line(line: str) -> int:
     15
     >>> decode_line("treb7uchet")
     77
+    >>> decode_line("two1nine")
+    29
+    >>> decode_line("eightwothree")
+    83
+    >>> decode_line("abcone2threexyz")
+    13
+    >>> decode_line("xtwone3four")
+    24
+    >>> decode_line('4nineeightseven2")
+    42
+    >>> decode_line("zoneight234")
+    14
+    >>> decode_line("7pqrstsixteen")
+    76
     """
-    digits = ""
+    digits = get_first_digit(line) + get_first_digit(line, True)
+    return int(digits)
+
+
+def get_first_digit(line: str, is_reversed=False) -> str:
+    if is_reversed:
+        line = line[::-1]
     for char in line:
         if char.isdigit():
-            digits += char
-            break
-    for char in reversed(line):
-        if char.isdigit():
-            digits += char
-            break
-    return int(digits)
+            return char
+    return ""
