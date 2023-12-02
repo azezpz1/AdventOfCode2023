@@ -1,6 +1,3 @@
-from curses.ascii import isdigit
-
-
 def decode_line(line: str) -> int:
     """Decodes the value from a given calibration line.
     >>> decode_line("1abc2")
