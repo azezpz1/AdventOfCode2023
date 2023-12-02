@@ -28,18 +28,14 @@ def decode_line(line: str) -> int:
     """
     first = ""
     last = ""
-    index_of_first = 0
-    index_of_last = 0
 
     index = 0
     for index in range(len(line)):
         number_at_index = get_number_from_index(index, line)
         if first == "":
             first = number_at_index
-            index_of_first = index
         if number_at_index != "":
             last = number_at_index
-            index_of_last = index
 
     return int(first + last)
 
