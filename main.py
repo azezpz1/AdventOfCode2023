@@ -1,6 +1,6 @@
 from pathlib import Path
 
-import calibration_line_decoder
+from AdventOfCode2023 import calibration_line_decoder
 
 
 def main():
@@ -10,7 +10,9 @@ def main():
 
 def get_calibration_amount():
     directory = Path(__file__).parent.absolute()
-    calibration_data_path = directory / "inputs" / "calibration_data.txt"
+    calibration_data_path = (
+        directory / "AdventOfCode2023" / "inputs" / "calibration_data.txt"
+    )
     with open(calibration_data_path) as f:
         total = 0
         for line in f:
