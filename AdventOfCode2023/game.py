@@ -10,6 +10,10 @@ class Game:
         self.grabs.append(grab)
 
     @property
+    def is_possible(self) -> bool:
+        return self.total_red <= 12 and self.total_green <= 13 and self.total_blue <= 14
+
+    @property
     def total_red(self):
         total = 0
         for grab in self.grabs:

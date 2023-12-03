@@ -7,10 +7,11 @@ from AdventOfCode2023.grab import Grab
 
 
 def parse(path_to_results: pathlib.Path) -> typing.List[Game]:
-    games: typing.List[Game] = []
+    games: typing.List[Game] = list()
     with open(path_to_results) as f:
         for line in f:
-            parse_game_from_line(line)
+            game = parse_game_from_line(line)
+            games.append(game)
     return games
 
 
