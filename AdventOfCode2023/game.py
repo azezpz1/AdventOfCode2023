@@ -11,7 +11,10 @@ class Game:
 
     @property
     def is_possible(self) -> bool:
-        return self.total_red <= 12 and self.total_green <= 13 and self.total_blue <= 14
+        for grab in self.grabs:
+            if grab.red > 12 or grab.green > 13 or grab.blue > 14:
+                return False
+        return True
 
     @property
     def total_red(self):
