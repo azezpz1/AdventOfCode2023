@@ -17,6 +17,25 @@ class Game:
         return True
 
     @property
+    def minimum_possible_values(self) -> typing.Tuple[int, int, int]:
+        min_red = 0
+        min_green = 0
+        min_blue = 0
+        for grab in self.grabs:
+            if grab.red > min_red:
+                min_red = grab.red
+            if grab.green > min_green:
+                min_green = grab.green
+            if grab.blue > min_blue:
+                min_blue = grab.blue
+        return (min_red, min_green, min_blue)
+
+    @property
+    def minimum_power(self) -> int:
+        red, green, blue = self.minimum_possible_values
+        return red * green * blue
+
+    @property
     def total_red(self):
         total = 0
         for grab in self.grabs:
